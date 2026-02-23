@@ -7,26 +7,29 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          lfs: true
 
-      - name: Install git-lfs
-        run: git lfs install
-
-      - name: Push to HF Spaces
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      - name: Debug - check token exists
         run: |
-          git config user.name "Jed Forest"
-          git config user.email "wath2023@outlook.com"
-          echo "Testing HF connection..."
-          curl -s -o /dev/null -w "HTTP %{http_code}" https://huggingface.co/api/whoami-v2 -H "Authorization: Bearer ${HF_TOKEN}"
-          echo ""
-          echo "Adding HF remote..."
-          git remote add hf https://Jedfd:${HF_TOKEN}@huggingface.co/spaces/Jedfd/micro-robot-hdc
-          echo "Pushing to HF Spaces..."
-          git push hf main --force 2>&1
-          echo "Done!"
+          if [ -z "$HF_TOKEN" ]; then
+            echo "ERROR: HF_TOKEN secret is empty!"
+            exit 1
+          fi
+          echo "Token exists (length: ${#HF_TOKEN})"
+
+      - name: Push to Hugging Face Hub
+        run: |
+          pip install huggingface_hub
+          python3 -c "
+          from huggingface_hub import HfApi
+          api = HfApi(token='${{ secrets.HF_TOKEN }}')
+          api.upload_folder(
+              folder_path='.',
+              repo_id='Jedfd/micro-robot-hdc',
+              repo_type='space',
+          )
+          print('Upload complete!')
+          "
