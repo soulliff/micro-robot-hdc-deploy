@@ -1,0 +1,35 @@
+{
+  "version": "v9_export",
+  "h64": {
+    "accuracy": 0.7645,
+    "class_accuracies": {
+      "Ae. aegypti": 0.693,
+      "Ae. albopictus": 0.759,
+      "An. arabiensis": 0.62,
+      "An. gambiae": 0.73,
+      "C. pipiens": 0.876,
+      "C. quinquefasciatus": 0.909
+    },
+    "npz_path": "models/wingbeat_v9/wingbeat_v9_h64.npz"
+  },
+  "h256": {
+    "accuracy": 0.7726666666666666,
+    "class_accuracies": {
+      "Ae. aegypti": 0.722,
+      "Ae. albopictus": 0.766,
+      "An. arabiensis": 0.669,
+      "An. gambiae": 0.699,
+      "C. pipiens": 0.871,
+      "C. quinquefasciatus": 0.909
+    },
+    "npz_path": "models/wingbeat_v9/wingbeat_v9_h256.npz"
+  },
+  "species": [
+    "Ae. aegypti",
+    "Ae. albopictus",
+    "An. arabiensis",
+    "An. gambiae",
+    "C. pipiens",
+    "C. quinquefasciatus"
+  ]
+}

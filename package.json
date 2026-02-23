@@ -1,0 +1,13 @@
+{
+  "name": "micro-robot-hdc",
+  "version": "1.0.0",
+  "description": "Micro-Robot HDC Swarm Console — 22 robots with 套娃 nesting hierarchy",
+  "scripts": {
+    "install": "cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npx vite build && cd ../server && npx tsc",
+    "start": "cd server && node dist/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

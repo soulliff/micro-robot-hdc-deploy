@@ -1,0 +1,29 @@
+{
+  "version": "v10_export",
+  "accuracy": 0.8183333333333334,
+  "per_class": {
+    "0": 0.771,
+    "1": 0.822,
+    "2": 0.706,
+    "3": 0.791,
+    "4": 0.91,
+    "5": 0.91
+  },
+  "npz_path": "models/wingbeat_v10/wingbeat_v10_poly2.npz",
+  "architecture": {
+    "n_raw_features": 72,
+    "n_features": 144,
+    "hidden_dim": 64,
+    "hdc_dim": 1000,
+    "n_classes": 6,
+    "augmentation": "poly2 (X + X^2)"
+  },
+  "species": [
+    "Ae. aegypti",
+    "Ae. albopictus",
+    "An. arabiensis",
+    "An. gambiae",
+    "C. pipiens",
+    "C. quinquefasciatus"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "install": "npm install && npm run build",
+  "start": "npm start",
+  "watch": {
+    "restart": {
+      "include": ["server/src/"]
+    }
+  }
+}
